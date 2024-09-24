@@ -32,12 +32,13 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Output information
-        run: echo "..."
+        run: |
+          echo "${{ env.MONGODB_CLUSTER_ADDRESS }}"
+          echo "$MONGODB_DB_NAME"
   deploy:
     needs: mongo-test
     runs-on: ubuntu-latest
     steps:
       - name: Output information
         run: |        
-          echo "${{ env.MONGODB_CLUSTER_ADDRESS }}"
           echo "$MONGODB_DB_NAME"
