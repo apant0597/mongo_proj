@@ -4,11 +4,10 @@ on:
     branches:
       - main
     paths-ignore:
-      - "./.github/workflows/*"
+      - '.github/workflows/*'
   workflow_dispatch:
 env:
   MONGODB_DB_NAME: gha-demo-db
-
 jobs:
   mongo-test:
     environment: test
@@ -40,4 +39,5 @@ jobs:
     steps:
       - name: Output information
         run: |        
-          echo "..."
+          echo "${{ env.MONGODB_CLUSTER_ADDRESS }}"
+          echo "$MONGODB_DB_NAME"
